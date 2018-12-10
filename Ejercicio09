@@ -1,0 +1,60 @@
+
+/* 
+* Ejercicio09
+* 
+* Jaime balaguer 
+* 
+* 29/10/18
+*  
+*/
+import java.util.Scanner;
+
+public class Ejercicio09 {
+
+	public static void main(String[] args) {
+
+		int i = 1;
+		int num = 0;
+		int notas = 0;
+		int total = 0;
+		int media = 0;
+		int notamayor = 0;
+		int[] arrayA = new int[num];
+
+		Scanner teclado = new Scanner(System.in);
+
+		System.out.print("Introduce cuantas notas se van a leer");
+
+		while (teclado.hasNextInt() == false) {//bucle que compueba si es un entero
+			System.out.print("Introduce un entero");
+			teclado.next();
+		}
+		num = teclado.nextInt();
+
+		for (i = 1; i <= num; i++) {//bucle para introducir los numeros que se han solicitado antes
+			System.out.print("Introduce  numeros ");
+
+			while (teclado.hasNextInt() == false) {//bucle que compueba si es un entero
+				System.out.print("Introduce un entero");
+				teclado.next();
+			}
+			notas = teclado.nextInt();
+			while (notas >= 0 && notas <= 10) {//bucle que comprueba si el valor esta entre 0 y 10
+				arrayA[num] = notas;
+				System.out.print("nota valida ");
+
+				if (notas > notamayor) {
+					notamayor = notas;
+				}
+
+				total = total + notas;
+			}
+		}
+		media = total / num;
+
+		System.out.println("notas: " + arrayA);
+
+		System.out.print("media: " + media + "nota mas alta" + notamayor);
+
+	}
+}
